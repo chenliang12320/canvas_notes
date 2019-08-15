@@ -19,3 +19,20 @@ new Path2D(path); // 克隆Path对象
 new Path2D(d);    // 从SVG建立Path对象
 
 Path2D.addPath
+
+
+
+  var methods = ['arc', 'arcTo', 'beginPath', 'bezierCurveTo', 'clearRect', 'clip',
+    'closePath', 'drawImage', 'fill', 'fillRect', 'fillText', 'lineTo', 'moveTo',
+    'quadraticCurveTo', 'rect', 'restore', 'rotate', 'save', 'scale', 'setTransform',
+    'stroke', 'strokeRect', 'strokeText', 'transform', 'translate'];
+
+  var getterMethods = ['createPattern', 'drawFocusRing', 'isPointInPath', 'measureText', // drawFocusRing not currently supported
+    // The following might instead be wrapped to be able to chain their child objects
+    'createImageData', 'createLinearGradient',
+    'createRadialGradient', 'getImageData', 'putImageData'
+  ];
+
+  var props = ['canvas', 'fillStyle', 'font', 'globalAlpha', 'globalCompositeOperation',
+    'lineCap', 'lineJoin', 'lineWidth', 'miterLimit', 'shadowOffsetX', 'shadowOffsetY',
+    'shadowBlur', 'shadowColor', 'strokeStyle', 'textAlign', 'textBaseline'];
