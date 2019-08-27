@@ -1,0 +1,91 @@
+1.canvas介绍
+2.canvas用法
+
+设置canvas 环境
+	渲染上下文、检查支持性
+
+在 canvas 上绘制，绘制矩形，三角形，直线，圆弧和曲线，掌握路径
+	栅格、绘制矩形（fillRect、strokeRect、clearRect）、绘制路径（beginPath、closePath、stroke、fill）、移动笔触moveTo、绘制直线lineTo、绘制圆弧或者圆（arc、arcTo）、贝塞尔曲线（二次quadraticCurveTo、三次bezierCurveTo）、矩形rect
+	Path2D、 使用 SVG paths
+	
+	arc 以横轴X，顺时针计算弧度, 和anticlockwise的方向没有关联
+
+添加样式和颜色
+	颜色（fillStyle、strokeStyle）、透明度globalAlpha、线型（半渲染）、渐变、图案样式 、阴影、
+	Canvas 填充规则（nonzero、evenodd）
+
+在canvas中绘制文本
+	fillText、strokeText
+	font、textAlign、textBaseline、direction
+	measureText()
+
+canvas更有意思的一项特性就是图像操作能力。可以用于动态的图像合成或者作为图形的背景，以及游戏界面（Sprites）
+	图片的源：HTMLImageElement、HTMLVideoElement、HTMLCanvasElement、ImageBitmap
+	一个常用的应用就是将第二个canvas作为另一个大的 canvas 的缩略图。
+	通过 data: url 方式嵌入图像
+	绘制图片drawImage(image, x, y)
+	缩放drawImage(image, x, y, width, height)
+	切片drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+
+到目前为止，我们只是根据我们的需要使用默认的网格，改变整个画布的大小。变形是一种更强大的方法，可以将原点移动到另一点、对网格进行旋转和缩放。
+	状态的保存和恢复：save、restore
+		当前应用的变形（即移动，旋转和缩放，见下）
+		strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation 的值
+		当前的裁切路径（clipping path）
+	移动translate(x, y)
+	旋转rotate(angle)
+	缩放scale(x, y)
+	transform(m11, m12, m21, m22, dx, dy) 、 resetTransform
+	
+组合与裁剪
+	globalCompositeOperation = type
+	clip()将当前正在构建的路径转换为当前的裁剪路径。
+	裁切路径不会在 canvas 上绘制东西，而且它永远不受新图形的影响
+动画
+	清空 canvas
+	保存 canvas 状态
+	绘制动画图形
+	恢复 canvas 状态
+	requestAnimationFrame(callback)
+
+像素操作
+	ImageData （width、height、data）
+	createImageData、putImageData
+	使用场景:颜色选择器、图片灰度和反相颜色、缩放和反锯齿
+	保存图片：返回一个包含被类型参数规定的图像表现格式的数据链接。返回的图片分辨率是96dpi。
+		canvas.toDataURL('image/png')
+		canvas.toDataURL('image/jpeg', quality)
+		canvas.toBlob(callback, type, encoderOptions)
+
+canvas 的优化
+	在离屏canvas上预渲染相似的图形或重复的对象
+	避免浮点数的坐标点，用整数取而代之
+	不要在用drawImage时缩放图像
+	使用多层画布去画一个复杂的场景
+	用CSS设置大的背景图
+	用CSS transforms特性缩放画布
+	关闭透明度
+	将画布的函数调用集合到一起（例如，画一条折线，而不要画多条分开的直线）
+	避免不必要的画布状态改变
+	渲染画布中的不同点，而非整个新状态
+	尽可能避免 shadowBlur特性
+	尽可能避免text rendering
+	使用不同的办法去清除画布(clearRect() vs. fillRect() vs. 调整canvas大小)
+	 有动画，请使用window.requestAnimationFrame() 而非window.setInterval()
+	请谨慎使用大型物理库
+	
+库
+Canvas API是非常强大的，但不总是很容易使用。以下列出的库能够使创建基于canvas的项目更快和更简单。
+EaselJS 使制作游戏、创作类艺术和其他侧重图形项目更容易的开源canvas库
+Fabric.js 具有SVG解析功能的开源canvas库
+heatmap.js 基于 canvas的热点图的开源库
+JavaScript InfoVis Toolkit 创建交互式的2D Canvas数据可视化
+Konva.js 用于桌面端和移动端应用的2D canvas库
+p5.js 包含给艺术家、设计师、教育者、初学者使用的完整的canvas绘制功能
+Paper.js 运行于HTML5 Canvas上的开源矢量图形脚本框架
+Phaser 用于基于Canvas和WebGL的浏览器尤其的快速、自由、有趣的开源框架
+Processing.js 用于处理可视化语言
+Pts.js 在canvas和SVG中进行创意性代码写作和可视化的库
+Rekapi 关键帧动画库
+Scrawl-canvas 用来创建和编辑2D图形的开源库
+ZIM 框架为canvas上的代码创意性提供方便性、组件和可控性，包括可用性和数百个色彩缤纷的教程

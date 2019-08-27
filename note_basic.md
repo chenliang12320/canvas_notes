@@ -4,7 +4,7 @@
    beginPath  新建一条路径
    绘制命令指向路径，生成路径
    closePath 闭合路径 绘制命令指向上下文
-3. 绘制命令有： fillRect stroke fill moveTo lineTo
+3. 绘制命令有： fillRect strokeRect stroke fill moveTo lineTo
 arc(x, y, radius, startAngle, endAngle, anticlockwise)
 以横轴X，顺时针计算弧度, 和anticlockwise的方向没有关联
 
